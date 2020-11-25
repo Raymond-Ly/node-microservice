@@ -9,9 +9,12 @@ package:
     - 'src/**'
     - 'node_module/**'
 
+plugins:
+  - serverless-dotenv-plugin
+
 custom:
-  corgApiUrl: https://www.casino.org
-  corgAccessToken: ''
+  baseUrl: ${opt:baseUrl, env:BASE_URL}
+  authKey: ${opt:authKey, env:AUTH_KEY}
   maxParallel: 50
 
 provider:
