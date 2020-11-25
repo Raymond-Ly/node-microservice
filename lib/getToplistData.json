@@ -1,0 +1,17 @@
+{
+    "requestContext": {
+        "elb": {
+        "targetGroupArn": "example/target/group/arn"
+        }
+    },
+    "httpMethod": "GET",
+    "path": "/api/toplist",
+    "queryStringParameters": {
+        "countryCode": "GB"
+    },
+    "headers": {
+        "Accept": "application/vnd.api+json"
+    },
+    "body": null,
+    "isBase64Encoded": false
+}

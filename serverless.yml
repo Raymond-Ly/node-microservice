@@ -1,0 +1,26 @@
+service: corg-microservice
+
+package:
+  exclude:
+    - '/*'
+    - '*~'
+    - 'test/**'
+  include:
+    - 'src/**'
+    - 'node_module/**'
+
+custom:
+  corgApiUrl: https://www.casino.org
+  corgAccessToken: ''
+  maxParallel: 50
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  getToplist:
+    handler: dist/src/handlers/getToplistHandler.get
+    memorySize: 2048
+    timeout: 20
+    description: Get toplist data based on GEO.
