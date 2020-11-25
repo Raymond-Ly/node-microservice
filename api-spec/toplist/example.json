@@ -1,0 +1,31 @@
+{
+  "data": {
+    "toplistGroupId": 555,
+    "partners": [
+      {
+        "id": 133,
+        "rank": 0,
+        "name": "Mansion Casino",
+        "bonus": "£500",
+        "bullets": [
+            "Live Dealer Available",
+            "200  high quality games",
+            "24/7 Customer support",
+            "Mobile friendly casino gaming"
+        ]
+      },
+      {
+          "id": 29,
+          "rank": 1,
+          "name": "Betway",
+          "bonus": "£50",
+          "bullets": [
+              "Claim a large 1500 bonus",
+              "Play more than 400 games",
+              "Casino, Sports Betting, Live Dealer, Mobile &amp; more",
+              "Accepts PayPal"
+          ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+openapi: 3.0.3
+info:
+    title: Toplist
+    description: 'GET request to return an array of Partners based on countryCode or toplistGroupId'
+    version: 1.0.0
+servers:
+    - url: 'https://www.casino.org/api/'
+    - url: 'http://local.casino.org/api/'
+paths:
+    /toplist:
+        get:
+            summary: Return an array of Partners based on countryCode or toplistGroupId
+            parameters:
+                - in: query
+                  name: toplistGroupId
+                  description: Toplist Group Id
+                  required: true
+                  schema:
+                      type: integer
+                - in: query
+                  name: countryCode
+                  description: Country Code
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Success
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/toplistJsonApi'
+                '404':
+                    description: Not Found
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/errorsJsonApi'
+                '406':
+                    description: Not Acceptable
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/errorsJsonApi'
+                '503':
+                    description: Service Unavailable
+                    content:
+                        application/vnd.api+json:
+                            schema:
+                                $ref: '#/components/schemas/errorsJsonApi'
+components:
+    schemas:
+        toplistJsonApi:
+            properties:
+              data:
+                $ref: '#/components/schemas/toplist'
+
+        toplist:
+            type: object
+            required:
+                - id
+                - rank
+                - name
+                - bonus
+            properties:
+                toplistGroupId:
+                    type: integer
+                    example: 555
+                partners:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - id
+                        - rank
+                        - name
+                        - bonus
+                      properties:
+                        id:
+                            type: integer
+                            example: 123
+                        rank:
+                            type: integer
+                            example: 1
+                        name:
+                            type: string
+                            example: 'Ray Mansino'
+                        bonus:
+                            type: string
+                            example: '£500'
+                        bullets:
+                            type: array
+                            default: []
+                            items:
+                              type: string
+                              example: 'Superb selection of games'
+
+        errorsJsonApi:
+            type: object
+            required:
+                - errors
+            properties:
+                errors:
+                    type: array
+                    items:
+                        type: array
+                        items:
+                            type: object
+                            required:
+                                - status
+                                - title
+                            properties:
+                                status:
+                                    type: integer
+                                    example: 404
+                                title:
+                                    type: string
+                                    example: Not Found

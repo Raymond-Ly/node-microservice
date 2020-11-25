@@ -4,7 +4,6 @@
   "author": "Raymond Ly",
   "license": "ISC",
   "description": "CORG microservice by Raymond Ly",
-  "main": "index.js",
   "scripts": {
     "build": "yarn clean && tsc --esModuleInterop",
     "clean": "rm -rf dist/",
