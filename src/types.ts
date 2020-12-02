@@ -1,11 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+interface Image {
+  desktopPath: string,
+  mobilePath: string,
+  altText: string
+}
+
 export interface PartnerAttributes {
   id: string|number,
   rank: number,
   name: string,
+  affiliateLink: string,
   bonus: string,
-  bullets: string[]
+  bullets: string[],
+  logo: Image
 }
 
 interface ToplistApiAttributes {
@@ -24,5 +32,7 @@ export interface OriginalPartnerAttributes {
   rank: string,
   sitename: string,
   bonusvalue: string,
-  verticalbullets: []
+  verticalbullets: [],
+  affiliate_link: string,
+  logo: string
 }

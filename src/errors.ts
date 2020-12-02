@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+
 export class HttpError extends Error {
   status: number;
 

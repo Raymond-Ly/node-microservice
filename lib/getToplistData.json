@@ -7,7 +7,8 @@
     "httpMethod": "GET",
     "path": "/api/toplist",
     "queryStringParameters": {
-        "countryCode": "GB"
+        "countryCode": "GB",
+        "page": "gambling"
     },
     "headers": {
         "Accept": "application/vnd.api+json"

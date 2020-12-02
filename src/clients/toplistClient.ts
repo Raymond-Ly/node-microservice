@@ -4,8 +4,8 @@ import axios from 'axios';
 import config from '../config';
 import { errorResponse } from '../helpers/responseHelper';
 
-export const getPartners = (countryCode: string): any => {
-  const url = `${config.baseUrl}/api/pages/?url=gambling&country=${countryCode}`;
+export const getPartners = (countryCode: string, page: string): any => {
+  const url = `${config.baseUrl}/api/pages/?url=${page}&country=${countryCode}`;
   const headers = {
     Authorization: config.authKey,
   };

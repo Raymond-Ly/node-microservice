@@ -1,6 +1,6 @@
 import assert from 'assert';
-import { getCountryCode } from '../../src/handlers/getToplistHandler';
-import { ALBEvent, ALBResult } from 'aws-lambda';
+import { getCountryCode, getPage } from '../../src/handlers/getToplistHandler';
+import { ALBEvent } from 'aws-lambda';
 
 const awsEventWithQueryString = (countryCode: string): ALBEvent => ({
   queryStringParameters: {
@@ -32,6 +32,15 @@ describe('getCountryCode', () => {
     assert.throws(
       () => getCountryCode(awsEventWithQueryString(invalidCountryCode)),
       { message: `country code '${invalidCountryCode}' is invalid`}
+    );
+  })
+})
+
+describe('getPage', () => {
+  it('should throw an error if page code query string is undefined', () => {
+    assert.throws(
+      () => getPage(awsEventWithoutQueryString()),
+      { message: 'page query string must be specified'}
     );
   })
 })

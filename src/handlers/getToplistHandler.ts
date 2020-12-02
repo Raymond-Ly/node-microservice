@@ -19,11 +19,23 @@ export const getCountryCode = (event: ALBEvent): string => {
   return countryCode;
 };
 
+export const getPage = (event: ALBEvent): string => {
+  const queryString = event.queryStringParameters;
+  const page = event.queryStringParameters?.page;
+
+  if (!queryString || !page) {
+    throw new BadRequestError('page query string must be specified');
+  }
+
+  return page;
+};
+
 module.exports.get = async (event: ALBEvent): Promise<ALBResult> => {
   try {
     const countryCode = getCountryCode(event);
-    console.info(`Received request for ${event.queryStringParameters?.countryCode}'s Toplist data`);
-    const toplistResponse = await getToplistResponse(countryCode);
+    const page = getPage(event);
+    console.info(`Received request for ${event.queryStringParameters?.page} ${event.queryStringParameters?.countryCode}'s Toplist data`);
+    const toplistResponse = await getToplistResponse(countryCode, page);
 
     return successResponse(toplistResponse);
   } catch (err) {

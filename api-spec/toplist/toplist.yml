@@ -9,20 +9,20 @@ servers:
 paths:
     /toplist:
         get:
-            summary: Return an array of Partners based on countryCode or toplistGroupId
+            summary: Return an array of Partners based on countryCode or page
             parameters:
-                - in: query
-                  name: toplistGroupId
-                  description: Toplist Group Id
-                  required: true
-                  schema:
-                      type: integer
                 - in: query
                   name: countryCode
                   description: Country Code
-                  required: true
+                  required: false
                   schema:
                       type: string
+                - in: query
+                  name: page
+                  description: page path
+                  required: true
+                  schema:
+                      type: integer
             responses:
                 '200':
                     description: Success
@@ -58,10 +58,7 @@ components:
         toplist:
             type: object
             required:
-                - id
-                - rank
-                - name
-                - bonus
+                - toplistGroupId
             properties:
                 toplistGroupId:
                     type: integer
@@ -74,6 +71,7 @@ components:
                         - id
                         - rank
                         - name
+                        - affiliateLink
                         - bonus
                       properties:
                         id:
@@ -85,6 +83,9 @@ components:
                         name:
                             type: string
                             example: 'Ray Mansino'
+                        affiliateLink:
+                            type: string
+                            example: '/casino/mansion/'
                         bonus:
                             type: string
                             example: '£500'
@@ -94,6 +95,22 @@ components:
                             items:
                               type: string
                               example: 'Superb selection of games'
+                        logo:
+                            type: object
+                            required:
+                                - desktopPath
+                                - mobilePath
+                                - altText
+                            properties:
+                              desktopPath:
+                                  type: string
+                                  example: 'desktop.jpg'
+                              mobilePath:
+                                  type: string
+                                  example: 'mobile.jpg'
+                              altText:
+                                  type: string
+                                  example: 'some text'
 
         errorsJsonApi:
             type: object
