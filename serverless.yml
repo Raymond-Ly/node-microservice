@@ -26,4 +26,10 @@ functions:
     handler: dist/src/handlers/getToplistHandler.get
     memorySize: 2048
     timeout: 20
-    description: Get toplist data based on GEO.
+    description: Get toplist data based on GEO or Page.
+
+  getAllToplists:
+    handler: dist/src/handlers/getAllToplistsHandler.get
+    memorySize: 2048
+    timeout: 20
+    description: Get all toplist data for all GEOs per Page.

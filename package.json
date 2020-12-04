@@ -8,6 +8,7 @@
     "build": "yarn clean && tsc --esModuleInterop",
     "clean": "rm -rf dist/",
     "invoke:getToplist": "yarn build && serverless invoke local --function getToplist --path lib/getToplistData.json",
+    "invoke:getAllToplists": "yarn build && serverless invoke local --function getAllToplists --path lib/getToplistData.json",
     "lint": "eslint src --ext .js,.ts",
     "test": "yarn clean && tsc --esModuleInterop -p tsconfig.test.json && yarn jest --verbose"
   },

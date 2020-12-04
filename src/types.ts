@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+interface ApiSingleResponse <T> {
+  data: T
+}
+
+interface ApiMultiResponse <T> {
+  data: T[]
+}
+
 interface Image {
   desktopPath: string,
   mobilePath: string,
@@ -16,16 +24,15 @@ export interface PartnerAttributes {
   logo: Image
 }
 
-interface ToplistApiAttributes {
+export interface ToplistApiAttributes {
   toplistGroupId: number,
+  countryCode: string,
   partners: PartnerAttributes[];
 }
 
-export type ToplistApiData = ToplistApiAttributes;
+export type ToplistApiResponse = ApiSingleResponse<ToplistApiAttributes>;
 
-export type ToplistApiResponse = {
-  data: ToplistApiAttributes
-}
+export type ToplistApiResponses = ApiMultiResponse<ToplistApiAttributes>;
 
 export interface OriginalPartnerAttributes {
   id: string,
@@ -33,6 +40,7 @@ export interface OriginalPartnerAttributes {
   sitename: string,
   bonusvalue: string,
   verticalbullets: [],
+  /* eslint-disable camelcase */
   affiliate_link: string,
   logo: string
 }
