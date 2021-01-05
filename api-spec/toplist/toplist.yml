@@ -4,8 +4,8 @@ info:
     description: 'GET request to return an array of Partners based on countryCode or toplistGroupId'
     version: 1.0.0
 servers:
-    - url: 'https://www.casino.org/api/'
-    - url: 'http://local.casino.org/api/'
+    - url: 'https://www.local.org/api/'
+    - url: 'http://local.org/api/'
 paths:
     /toplist:
         get:
