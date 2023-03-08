@@ -11,7 +11,6 @@
 - Yarn
 
 ## Prerequisites
-
 - Node v14+ installed.
 
 ## Getting Started
