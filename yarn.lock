@@ -6040,7 +6040,7 @@ serverless-dotenv-plugin@^2.1.1:
     dotenv "^8.2.0"
     dotenv-expand "^5.1.0"
 
-serverless@^1.61.1:
+serverless@^1.83.2:
   version "1.83.2"
   resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.83.2.tgz#e2889906f3d77372cec9b535cef0a9760357e092"
   integrity sha512-VjB0CK79iLbrmaPKgn/g1IrK+R2T1/TGh3LkTBHn8H+uLe8Fx15SP4jQsuLSSsr6XY7jB+GISb8pOlkTfdUjEQ==
